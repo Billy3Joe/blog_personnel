@@ -32,7 +32,38 @@
     ?>
     <hr>
 
-<h4>Commenter</h4>
+    <h4>Commentaires</h4>
+
+        <?php
+       
+         // Créeons une variable post qui va être égale à notre fuction crée dan la page hom.func.php
+         $responses = get_comments();
+
+         //Je parcour les différents résultats
+         //NB: null est pareil que false ie null = false et false = null
+        if ($responses != null) {
+            foreach ($responses as $response) {
+                ?>
+    
+                <blockquote>
+                        <strong>
+                            <?= $response->name ?> 
+                        </strong>
+                        <?= date("d/m/y", strtotime($response->date));?>
+                        <p><?= nl2br($response->comment) ?></p>
+                </blockquote>  
+    
+                <?php
+             }
+
+        }else {
+
+            echo "Aucun commentaire n'a été publié...Soyez le premier!";
+        }
+
+        ?>
+        
+    <h4>Commenter</h4>
 
 <?php
 if (isset($_POST['submit'])) {

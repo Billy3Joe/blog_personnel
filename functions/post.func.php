@@ -1,10 +1,10 @@
 <?php 
-    //Fonction pour réccupérer tous les post de la bd
+    //Fonction pour réccupérer un post sélectionnée par l'utilisateur de la bd
     function get_post(){
 
         global $db;
 
-    //Requête de reccpération de tous les posts
+    //Requête de reccpération toutes les données du post en question ainsi que le nom de l'admin
         $req = $db->query("
          
             SELECT 
@@ -57,5 +57,33 @@ function comment($name,$email,$comment){
 
 }
 
-    
+
+    //Fonction pour réccupérer tous les commentaires d'un post de la bd
+    function get_comments(){
+
+        global $db;
+
+    //Requête de reccpération de tous les posts
+        $req = $db->query("
+         
+           SELECT * 
+           FROM comments 
+           WHERE post_id = '{$_GET['id']}' 
+           ORDER BY date DESC
+                
+        ");
+
+        //Stoquons les resultats dans un tableau
+        // $results = array();
+        $results = [];
+        
+        //Je parcourt les resultats de ma requête
+        while ($rows = $req->fetchObject()){
+            
+            //Je ctock le contenu de la variable $row dans le tanleau $results
+            $results[] = $rows;
+        }
+
+        return $results;
+    }
 ?>

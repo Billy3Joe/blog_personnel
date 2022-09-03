@@ -1,7 +1,10 @@
 <?php 
     function inTable($table){
+
         global $db;
+
         $query = $db->query("SELECT COUNT(id) FROM $table");
+        
         return $nombre = $query->fetch();
     }
 
@@ -19,6 +22,7 @@
        }
     }
 
+    
 
     function get_comments(){
     
@@ -26,22 +30,20 @@
 
         $req = $db->query("
         
-            SELECT 
-                    comments.id,
-                    comments.name,
-                    comments.email,
-                    comments.date,
-                    comments.post_id,
-                    comments.comment,
-                    posts.title
+            SELECT comments.id,
+                   comments.name,
+                   comments.email,
+                   comments.date,
+                   comments.post_id,
+                   comments.comment,
+                   posts.title
 
             FROM comments
             JOIN posts
             ON comments.post_id = posts.id
             WHERE comments.seen = '0'
             ORDER BY comments.date ASC
-            LIMIT 0,3; 
-            
+        
             ");
 
         //Stoquons les resultats dans un tableau

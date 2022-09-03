@@ -15,6 +15,11 @@
                       <i class="material-icons">dashboard</i>
                     </a>
                 </li>
+
+                <li><a href="../index.php?page=home">Quitter</a></li>
+
+                <li><a href="index.php?page=logout">Déconnexion</a></li>
+
             </ul>
 
             <!-- <ul class="side-nav" id="mobile-menu">

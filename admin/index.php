@@ -55,6 +55,7 @@
             header("Location:index.php?page=login");
           } 
         ?>
+        
         <?php include 'body/topbar.php' ?>
 
         <div class="container">

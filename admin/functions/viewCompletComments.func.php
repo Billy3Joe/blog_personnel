@@ -6,14 +6,13 @@
 
         $req = $db->query("
         
-            SELECT 
-                    comments.id,
-                    comments.name,
-                    comments.email,
-                    comments.date,
-                    comments.post_id,
-                    comments.comment,
-                    posts.title
+            SELECT comments.id,
+                   comments.name,
+                   comments.email,
+                   comments.date,
+                   comments.post_id,
+                   comments.comment,
+                   posts.title
 
             FROM comments
             JOIN posts

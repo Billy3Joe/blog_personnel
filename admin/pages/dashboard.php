@@ -72,40 +72,59 @@
 
     <tbody>
      <?php
+     //Dans le cas ou on a aucun commentaire à valider
+     if (!empty($comments)) {
+      //Si $comments contient des commentaires ie s'il n'est pas vide on affiche le foreach
+      ?>
      
-        //Je parcour le tbleau $comments avec la boucle foreach()
-        foreach ($comments as $comment) {
-        ?>
-         <tr id="commentaire_<?= $comment->id ?>">
+          <?php
+          
+              //Je parcour le tbleau $comments avec la boucle foreach()
+              foreach ($comments as $comment) {
+              ?>
+              <tr id="commentaire_<?= $comment->id ?>">
 
-            <td><?= $comment->title ?></td>
+                  <td><?= $comment->title ?></td>
 
-            <!-- On utilise la fonction substr(debut, fin) pour réduire la taille d'un commentaire au cas ou l'utilisateur écrit un long commentaire -->
-            <td><?= substr($comment->comment,0,100); ?>...</td>
+                  <!-- On utilise la fonction substr(debut, fin) pour réduire la taille d'un commentaire au cas ou l'utilisateur écrit un long commentaire -->
+                  <td><?= substr($comment->comment,0,50); ?>...</td>
 
-            <td>
-                <!-- On met <?= $comment->id ?> afin que ça soit spécifique à chaque article -->
-                <a href="#" id="<?= $comment->id ?>" class="see_comment btn-floating btn-small waves-effect waves-light green">
-                  <i class="material-icons">done</i>
-                </a>
+                  <td>
+                      <!-- On met <?= $comment->id ?> afin que ça soit spécifique à chaque article -->
+                      <a href="#" id="<?= $comment->id ?>" class="see_comment btn-floating btn-small waves-effect waves-light green">
+                        <i class="material-icons">done</i>
+                      </a>
 
-                <a href="#" id="<?= $comment->id ?>" class="delete_comment btn-floating btn-small waves-effect waves-light red">
-                  <i class="material-icons">delete</i>
-                </a>
+                      <a href="#" id="<?= $comment->id ?>" class="delete_comment btn-floating btn-small waves-effect waves-light red">
+                        <i class="material-icons">delete</i>
+                      </a>
 
-                <a href="index.php?page=viewCompletComments&id=<?=$comment->id ?>" class="btn-floating btn-small waves-effect waves-light blue modal-trigger">
-                  <i class="material-icons">more_vert</i>
-                </a>   
-            </td>
-          </tr>
-        <?php
-        }
-     ?>
-     <!--Import jQuery before materialize.js-->
-     <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-     <script src="js/dashboard.func.js"></script>
-    </tbody>
-</table>
+                      <a href="index.php?page=viewCompletComments&id=<?=$comment->id ?>" class="btn-floating btn-small waves-effect waves-light blue modal-trigger">
+                        <i class="material-icons">more_vert</i>
+                      </a>   
+                  </td>
+                </tr>
+              <?php
+              }
+          ?>
+          <!--Import jQuery before materialize.js-->
+          <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+          <script src="js/dashboard.func.js"></script>
+          </tbody>
+      </table>
+    
+  <?php
+    //Sinon  (Si $comments ne contient pas des commentaires ie s'il est pas vide on affiche )
+   }else {
+  ?>
+    <tr>
+      <td></td>
+      <!-- On l'affiche dans la deuxième colone c'est pourquoi on a mis dans la deuxième balise <td></td> au lieu de la première -->
+      <td><center>Aucun commentaire à valider</center></td>
+    </tr>
+    <?php
+    }
+    ?>
 <pre>
     <?php 
      var_dump($_SESSION);

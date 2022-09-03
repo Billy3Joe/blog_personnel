@@ -40,6 +40,13 @@
     </head>
 
     <body>
+        <?php 
+        //Vérifions que la page est login mais si c'es pas login, je rédirige l'utilisateur vers la page login
+        //Si l'utilisateur veut avoir accès à une autre page de l'admin en dehors de la page login, en étant pas connecté, il sera renvoyé automatiquement vers la page login pour se connecter
+          if ($page != 'login' && !isset($_SESSION['admin'])) {
+            header("Location:index.php?page=login");
+          } 
+        ?>
         <?php include 'body/topbar.php' ?>
 
         <div class="container">

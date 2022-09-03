@@ -15,7 +15,7 @@
                 posts.date,
                 admins.name
             FROM posts
-            INNER JOIN admins
+            JOIN admins
             ON posts.name=admins.name
             WHERE posts.id='{$_GET['id']}'
             AND posts.posted = '1'

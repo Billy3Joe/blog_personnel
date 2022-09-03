@@ -26,6 +26,15 @@
      if (in_array($page.'.func.php',$pages_functions)) {
        include 'functions/'.$page.'.func.php';
      }
+
+     
+      //POUR LES PAGES DU DOSSIER JS
+      $pages_js = scandir('js/');
+      if(in_array($page.'.func.js',$pages_js)){
+          ?>
+          <script type="text/javascript" src="js/<?= $page ?>.func.js"></script>
+      <?php
+      }
  ?>
  <!DOCTYPE html>
   <html>
@@ -46,6 +55,8 @@
             <!-- J'appel tous les pages incluent dans le dossier page -->
             <?php include 'pages/'.$page.'.php'; ?>
         </div>
+         <!--Import jQuery before materialize.js-->
+         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
       <!--JavaScript at end of body for optimized loading-->
       <script type="text/javascript" src="js/materialize.js"></script>
     </body>

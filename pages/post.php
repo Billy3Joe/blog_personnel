@@ -1,10 +1,12 @@
 
     <?php 
-        // Créeons une variable post qui va être égale à notre fuction crée dan la page hom.func.php
+        // Créeons une variable post qui va être égale à notre fuction crée dan la page post.func.php
         $post = get_post();
 
         if ($post == false) {
+
            header("Location:index.php?page=error");
+           
         }else {
             ?>
                 <div class="post">
@@ -122,6 +124,7 @@ if (isset($_POST['submit'])) {
    }
 }
 ?>
+
 <form action="" method="POST">
    <div class="row">
     

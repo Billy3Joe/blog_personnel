@@ -1,13 +1,16 @@
 
     <?php 
-        // Créeons une variable post qui va être égale à notre fuction crée dan la page post.func.php
+        // Appelons la fonction post en la stoquant dans la variable $post crée dan la page post.func.php
         $post = get_post();
 
+        //Vérifions si notre variable $post est bien définie
         if ($post == false) {
 
+           //Au cas ou elle est définie
            header("Location:index.php?page=error");
            
         }else {
+            //Au cas ou elle est définie
             ?>
                 <div class="post">
     

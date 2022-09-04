@@ -1,5 +1,5 @@
 <?php 
-    //Fonction pour réccupérer un post sélectionnée par l'utilisateur de la bd
+    //Fonction pour réccupérer un post sélectionné par l'utilisateur de la bd
     function get_post(){
 
         global $db;
@@ -22,12 +22,11 @@
 
         ");
 
-
-            //Vu qu'ici on a un seul resultat, la variable $results ne sera donnc pas un tableau
-            // On va directement mettre notre resultat obtenu dans fetchObject();
+            //Vu qu'ici on a un seul resultat, noue n'aurons pas besoin de parcourir le resultat dans un tableau et passer par la boucle while()
+             // On va directement mettre notre resultat obtenu dans la variable $result puis appellé la fonction fetchObject();
             $result = $req->fetchObject();
 
-        return $result;
+            return $result;
     }
 
 
@@ -86,6 +85,6 @@ function comment($name,$email,$comment){
             $results[] = $rows;
         }
 
-        return $results;
+            return $results;
     }
 ?>

@@ -4,25 +4,23 @@
 
         global $db;
 
-    //Requête de reccpération de tous les posts
+       //Requête de reccpération de tous les posts
         $req = $db->query("
-        
-            SELECT * FROM posts;  
-            SELECT 
-                posts.id,
+
+        SELECT  posts.id,
                 posts.title,
                 posts.image,
                 posts.date,
                 posts.content,
                 admins.name
-            FROM posts
-            INNER JOIN admins
-            ON posts.name=admins.name
-            WHERE posted ='1'
-            ORDER BY date DESC
-            LIMIT 0,2; 
+        FROM posts
+        JOIN admins
+        ON posts.writer=admins.email
+        WHERE posted='1'
+        ORDER BY date DESC
+        LIMIT 0,2
+    ");
 
-        ");
 
             //Stoquons les resultats dans un tableau
             $results = array();

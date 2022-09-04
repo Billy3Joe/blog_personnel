@@ -67,6 +67,7 @@
 
 <form method="post" enctype="multipart/form-data">
     <div class="row">
+
         <div class="input-field col s12">
             <input type="text" name="title" id="title"/>
             <label for="title">Titre de l'article</label>

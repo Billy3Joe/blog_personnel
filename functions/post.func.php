@@ -48,7 +48,9 @@ function comment($name,$email,$comment){
 
     //Faisons une requête préparée
     //NOW() nous permet d'avoir la date actuelle
-    $sql = "INSERT INTO comments(name,email,comment,post_id,date) VALUES(:name, :email, :comment, :post_id, NOW())";
+    $sql = "INSERT INTO comments(name,email,comment,post_id,date) 
+            VALUES(:name, :email, :comment, :post_id, NOW())";
+            
     $req = $db->prepare($sql);
 
      //Exécutons la requête en lui disant ce qu'elle utiliser pour exécuter $sql ie en faisant $req->execute($c);

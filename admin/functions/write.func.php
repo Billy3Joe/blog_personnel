@@ -1,32 +1,31 @@
 <?php
 
-function post($title, $content, $posted){
+function post($title,$content,$posted){
 
     global $db;
 
  //Nous allons stocker tous ces variables (données) dans le tableau $p
-  $p = [
+  $p = array(
 
-     'titre'    => $title,
+     'title'    => $title,
      'content'  => $content,
      'writer'   => $_SESSION['admin'],
      'posted'   => $posted
-    
-];
+
+  );
 
 //Requête d'insertion de l'article dans la  bd sans image mais avec le checkbox pour rendre public ou non représenter par $posted
 //NB: La date est appellé automatiquement avec la fonction NOW()
 
-$sql =" 
-       INSERT INTO posts(title, content, writer, date, posted)
-       VALUES(:title, :content, :writer, NOW(), :posted)
-      ";
+      $sql = "INSERT INTO posts(title, content, writer, date, posted) 
+              VALUES(:title, :content, :writer, NOW(), :posted)
+              ";
 
     //Préparons notre requête $sql
     $req = $db->prepare($sql);
 
     //Exécutons notre requête
-    $req->execute();
+    $req->execute($p);
 
     //Réccupérons le dernier id que nous avons mis en bd en utilisant la fonction lastInsertId();
     $id = $db->lastInsertId($sql);

@@ -22,7 +22,7 @@
                         </h6>
 
                         <div class="card-image waves-effect waves-block waves-light">
-                            <img src="img/posts/<?= $post->image ?>" class="activator" alt="<?= $post->title ?>">
+                            <img src="img/posts/<?= $post->image ?>" class="activator" alt="">
                         </div>
 
                           <!-- J'affiche l'apperçu de l'article en utilisant la fonction substr(bebut, fin); -->

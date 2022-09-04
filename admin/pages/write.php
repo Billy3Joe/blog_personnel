@@ -9,7 +9,7 @@
   //die(var_dump($_POST));
 
   //Concernant la checkbox
-  $posted = isset($_POST['submit']) ? "1" : "0";
+  $posted = isset($_POST['public']) ? "1" : "0";
 
   $errors = [];
 
@@ -59,6 +59,22 @@
         //Il s'agit du post sans image mais avec le checkbox pour rendre public ou non représenter par $posted
         post($title,$content,$posted);
 
+        //Au cas ou l'utilisateur sélectionne une image
+        if(!empty($_FILES['image']['name'])){
+
+           //On va devoir uploader le text avec l'image
+            post_img($_FILES['image']['tmp_name'], $extension);
+
+        }else{
+            
+            //On réccupère le dernier id qui fait refférence au dernier post qui a été publié
+            $id = $db->lastInsertId();
+
+            //On rédirige le fichier après le click de l'utilisateur vers la page post sans image que nous avons appélée dans le fichier write.fun.php
+            //On redirige l'utilisateur vers la page du post en question
+            header("Location:index.php?page=post&id=".$id);
+        }
+
        
     }
 }
@@ -79,16 +95,14 @@
         </div>
         <div class="col s12">
             <div class="input-field">
-                <div class="btn col s2">
-                    <span>Image de l'article</span>
-                    <input type="file" name="image" class="col s12"/>
+                <div>
+                    <input type="file" name="image"/>
                 </div>
                   <!-- readfile permet que l'utilisateur ne puisse pas modifier le nom du fichier qu'il a sélectionné -->
-                <input type="text" class="file-path col s10" readonly/>
             </div>
         </div>
 
-        <div class="col s6">
+        <div class="col s6" style="padding: 30px;">
             <p>Public</p>
             <div class="switch">
                 <label>

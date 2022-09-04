@@ -16,8 +16,8 @@
                 admins.name
             FROM posts
             JOIN admins
-            ON posts.name=admins.name
-            WHERE posts.id='{$_GET['id']}'
+            ON posts.writer = admins.email
+            WHERE posts.id ='{$_GET['id']}'
             AND posts.posted = '1'
 
         ");

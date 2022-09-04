@@ -1,4 +1,6 @@
 <h1>Blog</h1>
+<hr>
+
 <div class="row">
     <?php 
         // Créeons une variable post qui va être égale à notre fuction crée dan la page hom.func.php

@@ -23,6 +23,13 @@
                     </a>
                 </li>
 
+                <!-- Cest une condition ternaire en php permettant de rendre les liens des pages active lorsqu'on clique dessus -->
+                <li class="<?php echo ($page=="liste")?"active" : ""; ?>">
+                   <a href="index.php?page=liste">
+                      <i class="material-icons">view_list</i>
+                    </a>
+                </li>
+
                 <li><a href="../index.php?page=home">Quitter</a></li>
 
                 <li><a href="index.php?page=logout">Déconnexion</a></li>

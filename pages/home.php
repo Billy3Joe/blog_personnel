@@ -1,4 +1,5 @@
 <h1>Page d'accueil</h1>
+
     <?php 
         // Créeons une variable post qui va être égale à notre fuction crée dan la page hom.func.php
         $posts = get_posts();

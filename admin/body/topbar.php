@@ -2,7 +2,9 @@
     <div class="container">
         <div class="nav-wrapper">
 
-             <a href="index.php?page=home" class="brand-logo">Blog personnel</a>
+             <a href="index.php?page=home" class="brand-logo">
+                 <img src="../img/bj.jpg" alt="Mon logo" height="70px" width="70px">
+             </a>
              
               <?php 
                    //Seul la page login et new n'auront pas de navbar 

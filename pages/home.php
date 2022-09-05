@@ -38,7 +38,7 @@
                                         more_vert
                                     </i>
                                 </span>
-                                <p><a href="index.php?page=post&id=<?=$post->id ?>"target=_blank>Voir l'article complet</a></p>
+                                <p><a href="index.php?page=post&id=<?=$post->id ?>">Voir l'article complet</a></p>
                             </div>
 
                             <div class="card-reveal">

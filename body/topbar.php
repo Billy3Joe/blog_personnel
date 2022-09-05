@@ -2,7 +2,9 @@
     <div class="container">
         <div class="nav-wrapper">
 
-            <a href="index.php?page=home" class="brand-logo">Billy3Joe</a>
+            <a href="index.php?page=home" class="brand-logo">
+                <img src="img/bj.jpg" alt="Mon logo" height="70px" width="70px">
+            </a>
 
             <!-- <a href="#"data-activates="mobile-menu" class="button-collapse">
                 <i class="material icons">menu</i>

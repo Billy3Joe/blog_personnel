@@ -30,6 +30,13 @@
                     </a>
                 </li>
 
+                <!-- Cest une condition ternaire en php permettant de rendre les liens des pages active lorsqu'on clique dessus -->
+                <li class="<?php echo ($page=="settings")?"active" : ""; ?>">
+                   <a href="index.php?page=settings">
+                      <i class="material-icons">settings</i>
+                    </a>
+                </li>
+
                 <li><a href="../index.php?page=home">Quitter</a></li>
 
                 <li><a href="index.php?page=logout">Déconnexion</a></li>

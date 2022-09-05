@@ -18,49 +18,60 @@ if (isset($_SESSION['admin'])) {
             </h4>
 
             <?php 
-            
-            if (isset($_POST['submit'])){
+              
+              if (isset($_POST['submit'])){
 
-                $email = htmlspecialchars(trim($_POST['email']));
-                $password = htmlspecialchars(trim($_POST['password']));
-                $errors =[];
+                  $email = htmlspecialchars(trim($_POST['email']));
+                  $password = htmlspecialchars(trim($_POST['password']));
+                  $errors =[];
 
-                if (empty($email) || empty($password)) {
-                  $errors['empty'] = "Veillez remplir tous les champs!" ;
-                  
-                 //Vérifions que l'admin existe en créant cette fonction dans la page login.func.php
-                 //S'il n'a pas trouvé de résultat dans la bd
-                }elseif (is_admin($email,$password) == 0) {
-                  
-                    $errors['exist'] = "Cette administrateur n'existe pas";
-                }
-                
-                // S'il y'a des érreurs ou si les erreurs existent
-                if (!empty($errors)) {
+                  if(!empty($_POST['email']) AND !empty($_POST['password'])) {
 
-                    //Dans ce cas je les affichent
-                   ?>
-                     <div class="card red">
-                        <div class="card-content white-text">
+                      $email_par_defaut ="billykamze3@gmail.com";
+                      $password_par_defaut ="admin1234";
+                      $email_saisi =htmlspecialchars($_POST['email']);
+                      $password_saisi =htmlspecialchars(sha1($_POST['password']));
 
-                        <!-- On parcour tous les erreus et les affichent -->
-                        <?php 
-                         foreach ($errors as $error) {
-                            echo $error."<br>";
-                         }
-                         ?>
+                   
+                      if($email_saisi != $email_par_defaut && $password_saisi != $password_par_defaut) {
+                        $errors = "Email et mot de pass incorrect !";
+                          
+                      }else{
+                      
+                       //Créons une session à l'utilisateur afin qu'il ne soit pas déconnecté par la suite.
+                       $_SESSION['admin'] = $email;
+    
+                       //Rédirection vers la page dashboard
+                       header("Location:index.php?page=dashboard");
+                      }
+                      
+                     
+                    
+                  }else{
+                    $errors = "Veillez remplir tous les champs !";
+                  }
+                    
+                  // S'il y'a des érreurs ou si les erreurs existent
+                  if (!empty($errors)) {
 
-                        </div>
-                     </div>
-                   <?php
-                }else {
-                    //Créons une session à l'utilisateur afin qu'il ne soit pas déconnecté par la suite.
-                   $_SESSION['admin'] = $email;
+                      //Dans ce cas je les affichent
+                    ?>
+                      <div class="card red">
+                          <div class="card-content white-text">
 
-                   //Rédirection vers la page dashboard
-                   header("Location:index.php?page=dashboard");
-                }
-            }  
+                          <!-- On parcour tous les erreus et les affichent -->
+                          <?php 
+                          
+                              echo $errors."<br>";
+                        
+                          ?>
+
+                          </div>
+                      </div>
+                    <?php
+
+                  }
+              }  
            
             ?>
 

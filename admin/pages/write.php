@@ -1,17 +1,20 @@
 <h2>Poster un article</h2>
 
-<?php 
+<div class="writeArticle">
+    
+    <?php 
 
- if (isset($_POST['post'])) {
-  $title = htmlspecialchars(trim($_POST['title']));
-  $content =htmlspecialchars(trim($_POST['content']));
-  //$title =htmlspecialchars(trim($_POST['title']));
-  //die(var_dump($_POST));
+    if (isset($_POST['post'])) {
 
-  //Concernant la checkbox
-  $posted = isset($_POST['public']) ? "1" : "0";
+    $title = htmlspecialchars(trim($_POST['title']));
+    $content =htmlspecialchars(trim($_POST['content']));
+    //$title =htmlspecialchars(trim($_POST['title']));
+    //die(var_dump($_POST));
 
-  $errors = [];
+    //Concernant la checkbox
+    $posted = isset($_POST['public']) ? "1" : "0";
+
+    $errors = [];
 
     if (empty($title) || empty($content)) {
 
@@ -52,7 +55,7 @@
                 </div>
             </div>
         <?php
- 
+
     //Au cas ou il n'ya pas d'erreurs, ont envoit l'image dans la bd
     }else{
         //Appel de la fonction post() codée dans le fichier post.func.php 
@@ -62,7 +65,7 @@
         //Au cas ou l'utilisateur sélectionne une image
         if(!empty($_FILES['image']['name'])){
 
-           //On va devoir uploader le text avec l'image
+            //On va devoir uploader le text avec l'image
             post_img($_FILES['image']['tmp_name'], $extension);
 
         }else{
@@ -75,13 +78,13 @@
             header("Location:index.php?page=post&id=".$id);
         }
 
-       
+        
     }
-}
+    }
 
-?>
+    ?>
 
-<form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
     <div class="row">
 
         <div class="input-field col s12">
@@ -98,7 +101,7 @@
                 <div>
                     <input type="file" name="image"/>
                 </div>
-                  <!-- readfile permet que l'utilisateur ne puisse pas modifier le nom du fichier qu'il a sélectionné -->
+                    <!-- readfile permet que l'utilisateur ne puisse pas modifier le nom du fichier qu'il a sélectionné -->
             </div>
         </div>
 
@@ -121,4 +124,20 @@
 
     </div>
 
-</form>
+    </form>
+</div>
+
+<style>
+    .writeArticle{
+        padding: 50px;
+        /* From https://css.glass */
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .btn{
+        background-color: #00C5FF;
+    }
+</style>

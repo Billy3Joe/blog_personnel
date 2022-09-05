@@ -1,8 +1,8 @@
-<nav class="light-blue">
+<nav class="navbarUsers">
     <div class="container">
         <div class="nav-wrapper">
 
-            <a href="index.php?page=home" class="brand-logo">Blog 2.0</a>
+            <a href="index.php?page=home" class="brand-logo">Billy3Joe</a>
 
             <!-- <a href="#"data-activates="mobile-menu" class="button-collapse">
                 <i class="material icons">menu</i>
@@ -22,3 +22,9 @@
         </div>
     </div>
 </nav>
+
+<style>
+    .navbarUsers{
+        background-color: #ED9B01;
+        }
+</style>

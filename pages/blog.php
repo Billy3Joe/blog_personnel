@@ -1,4 +1,4 @@
-<h1>Blog</h1>
+<h1>Mon Blog</h1>
 <hr>
 
 <div class="row">
@@ -13,7 +13,7 @@
      <div class="row">
         <div class="col l6 s12 m12 l12">
 
-          <h4><?= $post->title ?></h4>
+          <h4 class="title"><?= $post->title ?></h4>
 
             <div class="row col s12 m6 l6" style="text-align: justify;">
                <?=substr(nl2br($post->content),0,500) ?>...
@@ -22,7 +22,8 @@
           <div class="row col s12 m6 l4">
             <img src="img/posts/<?= $post->image?>" class="materialboxed responsive-img" alt="<?= $post->title?>">
             <br><br>
-            <a class="btn light-blue waves-effect waves-light" href="index.php?page=post&id=<?= $post->id?>">Lire l'article complet</a>
+            <!-- <a class="btn light-blue waves-effect waves-light" href="index.php?page=post&id=<?= $post->id?>">Lire l'article complet</a> -->
+            <a class="btn" href="index.php?page=post&id=<?= $post->id?>">Lire l'article complet</a>
           </div>
 
         </div>
@@ -31,3 +32,12 @@
     }
     ?>
 </div>
+
+<style>
+    .title{
+       color: #ED9B01;
+    }
+    .btn{
+      background-color: #ED9B01;
+    }
+</style>

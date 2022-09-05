@@ -5,7 +5,9 @@
 
         $query = $db->query("SELECT COUNT(id) FROM $table");
         
-        return $nombre = $query->fetch();
+        $nombre = $query->fetch();
+        
+        return $nombre;
     }
 
     function getColor($table, $colors){

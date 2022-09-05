@@ -1,9 +1,9 @@
-
-<h2>Paramètres</h2>
+<h2 class="h2">Paramètres</h2>
+<hr>
 
 <div class="row">
     <div class="col m6 s12">
-        <h4>Modérateurs</h4>
+        <h4 class="h4">Administrateurs et Modérateurs</h4>
         <table>
             <thead>
                 <tr>
@@ -40,7 +40,7 @@
     <div class="col m6 s12">
 
 
-       <h4>Ajouter un modérateur ou un administrateur</h4>
+       <h4 class="h4">Ajouter un gestionnaire</h4>
        <?php
             if(isset($_POST['submit'])){
 
@@ -118,7 +118,7 @@
 
             </div>
         </form>
-
+        
     </div>
 
         <!--Import jQuery before materialize.js-->
@@ -126,5 +126,12 @@
         <script src="js/settingsShowOptionsModoOrAdmin.func.js"></script>
     </div>
          
-
+<style>
+    .h4{
+        color: #00C5FF;
+       }
+    .btn{
+        background-color: #00C5FF;
+        }
+</style>
 

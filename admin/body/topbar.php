@@ -1,8 +1,8 @@
-<nav class="light-green">
+<nav class="light-blue">
     <div class="container">
         <div class="nav-wrapper">
 
-             <a href="index.php?page=home" class="brand-logo">Blog 2.0</a>
+             <a href="index.php?page=home" class="brand-logo">Blog personnel</a>
              
               <?php 
                    //Seul la page login et new n'auront pas de navbar 

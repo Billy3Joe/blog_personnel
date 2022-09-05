@@ -38,7 +38,11 @@
                                         more_vert
                                     </i>
                                 </span>
-                                <p><a href="index.php?page=post&id=<?=$post->id ?>">Voir l'article complet</a></p>
+                                <p>
+                                    <a style="color:#ED9B01;" href="index.php?page=post&id=<?=$post->id ?>">
+                                       Voir l'article complet
+                                    </a>
+                                </p>
                             </div>
 
                             <div class="card-reveal">
@@ -73,4 +77,5 @@
         text-align: center;
         color: #ED9B01;
     }
+
 </style>

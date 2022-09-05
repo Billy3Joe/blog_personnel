@@ -1,5 +1,4 @@
-
-    <?php 
+   <?php 
         // Appelons la fonction post en la stoquant dans la variable $post crée dan la page post.func.php
         $post = get_post();
 
@@ -21,20 +20,14 @@
                    <div>
                        <h2 class="title"><?= $post->title?></h2>
                        <h6>Par <?= $post->name ?> le <?= date("d/m/y à H:i", strtotime($post->date)); ?></h6>
-                       <p><?= nl2br($post->content)?></p>
+                       <p style="text-align: justify;"><?= nl2br($post->content)?></p>
                    </div>
 
                 </div>
-                <style>
-                    .post{
-                        display: flex;
-                        gap: 20px;
-                        text-align: justify;
-                    }
-                </style>
          <?php
         }
     ?>
+
     <hr>
 
     <h4 class = "commentaires">Commentaires</h4>
@@ -155,13 +148,21 @@
         </div>
     </form>
 
-    <style>
+<style>
 
+       .post{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: justify;
+        }
         .title{
             color: #ED9B01;
             }
             
         .image{
+            width: 1050px;
+            height: 700px;
             padding: 10px;
             /* From https://css.glass */
             background: rgba(255, 255, 255, 1);
@@ -181,4 +182,26 @@
             .btn{
                 background-color: #ED9B01;
             }
-    </style>
+
+            
+    @media (max-width: 700px){
+
+        .image {
+            width: 340px;
+            height: 340px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 4px 30px rgb(0 0 0 / 10%);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+            h2 {
+                font-size: 2.6rem;
+                line-height: 110%;
+                margin: 2.3733333333rem 0 1.424rem 0;
+            }
+    }
+
+</style>

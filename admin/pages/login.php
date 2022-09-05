@@ -95,6 +95,9 @@ if (isset($_SESSION['admin'])) {
                         <i class="material-icons left">perm_identity</i>
                         Se connecter
                     </button>
+
+                    <br/><br/>
+                    <a href="index.php?page=new">Nouveau modérateur</a>
                </center>
             </form>
         </div>

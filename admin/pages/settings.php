@@ -41,64 +41,45 @@
 
 
        <h4>Ajouter un modérateur ou un administrateur</h4>
+       <?php
+            if(isset($_POST['submit'])){
 
-     <?php
-        if(isset($_POST['submit'])){
-
-            $name = htmlspecialchars(trim($_POST['name']));
-            $email = htmlspecialchars(trim($_POST['email']));
-            $email_again = htmlspecialchars(trim($_POST['email_again']));
-            $role = htmlspecialchars(trim($_POST['role']));
-            $errors = [];
-
-            //Vérifions si tous les champs sont remplis
-            if(empty($name) || empty($email) || empty($email_again)){
-
-                //Au cas ou les champs ne sont pas remplis
-                $errors['empty'] = "Veuillez remplier tous les champs";
-            }
-            
-            //Comparons les deux adresses emails entrées par l'utilisateur
-            if($email != $email_again){
-
-                //Au cas ou elles sont différents
-                $errors['different'] = "Les adresses email ne correspondent pas";
-            }
-            
-            //Fonction permettant de voir si l'adresse email est déjà utilisée par une autre personne
-            if(email_taken($email)){
-
-                //Au cas ou l'email est déjà utilisée par une autre personne
-                $errors['taken'] = "L'adresse email est déjà assignée à un modérateur";
-            }
-
-            //Au cas ou les erreurs existent ie si la variable $errors contient des erreurs
-            if(!empty($errors)){
-                ?>
-                <!-- On affiche ces erreurs dans une boucle foreach -->
-                    <div class="card red">
-                        <div class="card-content white-text">
-                            <?php
-                            foreach($errors as $error){
-                                echo $error."<br/>";
-                            }
-                            ?>
-                        </div>
-                    </div>
-                <?php
-            //Au cas ou les erreurs n'existent pas ie la variable $errors ne contient pas des erreurs
-            }else{
-
-                //On ajout la personne soit comme modérateur ou administrateur le modétateur
-                //Mais avant, on aura besoin du token de la bd que nous avons crée sous forme de fonction token(30) dans le fichier settings.func.php avec une longueur de 30 caractères qui a été stocker dans la variable $token 
-                //$token c'est le code qui sera généré afin que la personne puisse confirmer via son mail afin d'avoir la possibilité d'être soit modérateur ou administrateur
-                //Le $token est un code généré aléatoirement 
+                $name = htmlspecialchars(trim($_POST['name']));
+                $email = htmlspecialchars(trim($_POST['email']));
+                $email_again = htmlspecialchars(trim($_POST['email_again']));
+                $role = htmlspecialchars(trim($_POST['role']));
                 $token = token(30);
 
-                //NB: Le password par défaut dans la base de donnée est vide afin d'éviter une erreur lors de notre requête d'insertion étant donnée que je n'ai pas mentionné le password dans le tableau $m et la requête
-                add_modo($name,$email,$role,$token);
+                $errors = [];
+
+                if(empty($name) || empty($email) || empty($email_again)){
+                    $errors['empty'] = "Veuillez remplier tous les champs";
+                }
+
+                if($email != $email_again){
+                    $errors['different'] = "Les adresses email ne correspondent pas";
+                }
+
+                if(email_taken($email)){
+                    $errors['taken'] = "L'adresse email est déjà assignée à un modérateur";
+                }
+
+                if(!empty($errors)){
+                    ?>
+                        <div class="card red">
+                            <div class="card-content white-text">
+                                <?php
+                                foreach($errors as $error){
+                                    echo $error."<br/>";
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    <?php
+                }else{
+                    add_modo($name,$email,$role,$token);
+                }
             }
-        }
 
 
         ?>

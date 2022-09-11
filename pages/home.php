@@ -1,5 +1,3 @@
-
-<h1 class="h1"> Articles recents</h1>
 <!-- Début de la recherche -->
     <?php 
        @$keywords=$_GET["keywords"];
@@ -18,9 +16,8 @@
     ?>
 
 <form action="" method="GET">
-    <h2>Recherche</h2>
     <input type="text" name="keywords"placeholder="<?= $keywords ?>">
-    <input type="submit" name="valider" value="Rechercher" class="btn orange waves-effect waves-light">
+    <input style="display: flex; justify-content: center" type="submit" name="valider" value="Rechercher" class="btn orange waves-effect waves-light">
     
     <?php 
     if (@$afficher=="oui") {
@@ -49,6 +46,7 @@
 </form>
 <!-- Fin de la recherche -->
 
+<h1 class="h1"> Articles recents</h1>
 <div class="#">
     <?php 
         // Créeons une variable post qui va être égale à notre fuction crée dan la page hom.func.php
@@ -111,6 +109,9 @@
 </div>
 
 <style>
+    .row{
+        padding: 10px;
+    }
     .card{
         padding: 10px;
         /* From https://css.glass */

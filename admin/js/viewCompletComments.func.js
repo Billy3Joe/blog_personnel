@@ -22,7 +22,7 @@
  $(document).ready(function() {
      //Vérifions que l'utilisateur a cliqué sur le bouton vu (juste)
      $(".delete_comment").click(function() {
-         //Définissons une variable quei va être celle de l'id du commentaire
+         //Définissons une variable qui va être celle de l'id du commentaire
          var id = $(this).attr("id");
          //Validons le commentaire
          $.post('ajax/delete_comment.php', { id: id }, function() {

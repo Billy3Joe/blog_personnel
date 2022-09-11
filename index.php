@@ -1,6 +1,6 @@
 
  <?php 
-   include 'functions/main-function.php';
+    include 'functions/main-function.php';
     //Je scanne le contenu du dossier pages
     $pages = scandir('pages/');
     //Je verifie si la page est presente et n'est pas vide
@@ -57,7 +57,7 @@
         </div>
          <!--Import jQuery before materialize.js-->
          <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-      <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="js/materialize.js"></script>
+         <!--JavaScript at end of body for optimized loading-->
+         <script type="text/javascript" src="js/materialize.js"></script>
     </body>
   </html>

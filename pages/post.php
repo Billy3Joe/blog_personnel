@@ -123,7 +123,7 @@
     ?>
 
     <form action="" method="POST">
-    <div class="row">
+        <div class="row">
         
             <div class="input-field col s12 m6">
                 <input type="text" name="name" id="name">

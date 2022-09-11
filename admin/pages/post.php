@@ -50,8 +50,8 @@
                             }else{
                                 //On modifie notre article en appellant la fonction edit() crée dans le dossier fonction
                                 edit($title,$content,$posted,$_GET['id']);
-                                ?>
 
+                                ?>
                                     <!-- Rédirigeons l'utilisateur vers la page post de l'article en question -->
                                     <script>
                                         window.location.replace("index.php?page=post&id=<?= $_GET['id'] ?>");

@@ -1,5 +1,53 @@
 
 <h1 class="h1"> Articles recents</h1>
+<!-- Début de la recherche -->
+    <?php 
+       @$keywords=$_GET["keywords"];
+       @$valider=$_GET["valider"];
+
+       if (isset($valider) && !empty(trim($keywords))) {
+        $words=explode(" ", trim($keywords));
+        
+        $res =$db->prepare("SELECT content FROM posts WHERE content LIKE '%$keywords%'");
+        $res->setFetchMode(PDO::FETCH_ASSOC);
+        $res->execute();
+        $tab=$res->fetchAll();
+        $afficher="oui";
+       }
+    
+    ?>
+
+<form action="" method="GET">
+    <h2>Recherche</h2>
+    <input type="text" name="keywords"placeholder="<?= $keywords ?>">
+    <input type="submit" name="valider" value="Rechercher" class="btn orange waves-effect waves-light">
+    
+    <?php 
+    if (@$afficher=="oui") {
+      ?>
+        <div id="resultats">
+            <div id="nbr">
+                <?= count($tab)." ".(count($tab)>1?"résultats trouvés":"résultat trouvé")?>
+            </div>
+            <hr>
+            <ol>
+                <?php 
+                
+                for ($i=0; $i < count($tab); $i++) { 
+              ?>
+                   <li><?= $tab[$i]["content"]?></li>
+              <?php
+                }
+                ?>
+            </ol>
+        </div>
+      <?php  
+    }
+    
+    ?>
+   
+</form>
+<!-- Fin de la recherche -->
 
 <div class="#">
     <?php 

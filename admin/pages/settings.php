@@ -3,7 +3,9 @@
 
 <div class="row">
     <div class="col m6 s12">
+
         <h4 class="h4">Administrateurs et Modérateurs</h4>
+        
         <table>
             <thead>
                 <tr>
@@ -35,12 +37,12 @@
             </tbody>
         </table>
 
-
     </div>
+
     <div class="col m6 s12">
 
-
        <h4 class="h4">Ajouter un gestionnaire</h4>
+
        <?php
             if(isset($_POST['submit'])){
 
